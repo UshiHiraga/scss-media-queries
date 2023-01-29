@@ -1,0 +1,47 @@
+$breakpoints-list: (
+    // Reference: Angular Flex Layout MediaQueries
+    "xs": (0px, 599px),
+    "sm": (600px, 959px),
+    "md": (960px, 1279px),
+    "lg": (1280px, 1919px),
+    "xl": (1920px, 5000px),
+    // Reference: Edge DevTools MediaQueries
+    "mobile-s": (0px, 320px),
+    "mobile-m": (321px, 375px),
+    "mobile-l": (376px, 425px),
+    "tablet": (426px, 768px),
+    "laptop": (769px, 1024px),
+    "laptop-l": (1025px, 1440px),
+    "4k": (1441px, 2560px),
+);
+
+// Media is...
+@mixin media($name) {
+    $breakpoint: map-get($breakpoints-list, $name);
+    $min: nth($breakpoint, 1);
+    $max: nth($breakpoint, 2);
+
+    @media screen and (min-width: #{$min}) and (max-width: #{$max}) {
+        @content;
+    }
+}
+
+// Media is less than...
+@mixin media-lt($name) {
+    $breakpoint: map-get($breakpoints-list, $name);
+    $min: nth($breakpoint, 1);
+
+    @media screen and (max-width: #{$min}) {
+        @content;
+    }
+}
+
+// Media is greater than...
+@mixin media-gt($name) {
+    $breakpoint: map-get($breakpoints-list, $name);
+    $max: nth($breakpoint, 2);
+
+    @media screen and (min-width: #{$max}) {
+        @content;
+    }
+}
