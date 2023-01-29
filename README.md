@@ -1,9 +1,9 @@
-# SCSS Mixins for media queries
+# SCSS Mixins for Media Queries
 ## Installation
 Download and include `media-queries.scss`.
 
 ## Usage
-SCSS file provide three mixins to control media queries and a map with several breakpoints.
+SCSS file provides three mixins to control media queries and a map with several breakpoints.
 
 ### Avaible mixins
 ```scss
